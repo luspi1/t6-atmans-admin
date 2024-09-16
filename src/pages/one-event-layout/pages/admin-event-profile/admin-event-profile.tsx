@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { type FC } from 'react'
 
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -10,7 +10,6 @@ import {
 import { AdminContent } from 'src/components/admin-content/admin-content'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
-import { useActions } from 'src/hooks/actions/actions'
 import { TitleSection } from 'src/pages/one-event-layout/pages/admin-event-profile/components/title-section/title-section'
 import { DateSection } from 'src/pages/one-event-layout/pages/admin-event-profile/components/date-section/date-section'
 import { DescSection } from 'src/pages/one-event-layout/pages/admin-event-profile/components/desc-section/desc-section'
@@ -19,8 +18,6 @@ import { NewAreaSection } from 'src/pages/one-event-layout/pages/admin-event-pro
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 export const AdminEventProfile: FC = () => {
-	const { setAdminTitle } = useActions()
-
 	const methods = useForm<EventProfileInputs>({
 		mode: 'onBlur',
 		resolver: yupResolver(eventProfileSchema),
@@ -33,13 +30,6 @@ export const AdminEventProfile: FC = () => {
 	const onSubmit: SubmitHandler<EventProfileInputs> = (data) => {
 		console.log(data)
 	}
-
-	useEffect(() => {
-		setAdminTitle('Профиль события')
-		return () => {
-			setAdminTitle(null)
-		}
-	}, [])
 
 	return (
 		<AdminContent $padding='25px 30px 35px'>

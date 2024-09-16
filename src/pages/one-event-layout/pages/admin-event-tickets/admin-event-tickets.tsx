@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { type FC } from 'react'
 
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -13,12 +13,10 @@ import { EventTitle } from 'src/components/event-title/event-title'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
 import { TicketsSection } from 'src/pages/one-event-layout/pages/admin-event-tickets/components/tickets-section/tickets-section'
-import { useActions } from 'src/hooks/actions/actions'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
 export const AdminEventTickets: FC = () => {
-	const { setAdminTitle } = useActions()
 	const methods = useForm<EventTicketsInputs>({
 		mode: 'onBlur',
 		resolver: yupResolver(eventTicketsSchema),
@@ -32,12 +30,6 @@ export const AdminEventTickets: FC = () => {
 		console.log(data)
 	}
 
-	useEffect(() => {
-		setAdminTitle('Билеты и допуски')
-		return () => {
-			setAdminTitle(null)
-		}
-	}, [])
 	return (
 		<AdminContent $padding='25px 30px 35px'>
 			<p className={adminStyles.adminPrompt}>

@@ -1,24 +1,37 @@
 .adminPersonal {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 30px;
   margin-left: auto;
   cursor: pointer;
+
+  a {
+    svg {
+      transition: all .3s;
+    }
+
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+  }
 }
 
-.adminAvatar {
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  border: 2px solid #35BCB4;
-}
 
-.adminName {
-  color: #ffffff;
-}
 
-.authBtn {
-  font-size: 16px;
-  color: #FFFFFF;
-  margin-left: auto;
+._unread {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background-color: #FF0000;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    z-index: 10;
+  }
 }

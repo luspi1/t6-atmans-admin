@@ -13,13 +13,14 @@ import { AdminLogoSvg } from 'src/UI/icons/adminLogoSVG'
 export const AdminHeader: FC = () => {
 	return (
 		<header className={styles.adminHeader}>
-			<Container className={styles.adminHeaderContainer} $width='1870px'>
+			<Container className={styles.adminHeaderContainer} $width='1830px'>
 				<Link className={styles.logoLink} to={AdminRoute.AdminHome}>
 					<AdminLogoSvg />
 				</Link>
 				<MainInput
 					className={styles.adminSearchInput}
 					name='admin_search'
+					placeholder='Поиск'
 					svgNode={<SearchSvg />}
 				/>
 				<AdminPersonal />

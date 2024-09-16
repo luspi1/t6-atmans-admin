@@ -1,55 +1,25 @@
 .tabNavList {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  @media (max-width: 1280px) {
+  gap: 30px;
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 
   li {
-    &:first-child {
-      a {
-        border-radius: 3px 0 0 3px;
-        @media (max-width: 1280px) {
-          border-radius: 0;
-        }
-      }
-    }
-
-    &:last-child {
-      a {
-        border-radius: 0 3px 3px 0;
-        @media (max-width: 1280px) {
-          border-radius: 0;
-        }
-      }
-    }
-
-
-    &:not(:last-child) {
-      a {
-        border-right: 1px solid #E3DDDD;
-        @media (max-width: 1280px) {
-          border-right: none;
-          border-bottom: 1px solid #E3DDDD;
-        }
-
-      }
-    }
-
     a {
-      background: #ffffff;
       display: inline-block;
-      padding: 8px 20px;
-      color: #000000;
-      font-size: 14px;
-      width: 100%;
-
+      color: #6FF5FE;
+      font-size: 16px;
+      border-bottom: 1px dotted #6FF5FE;
+      font-weight: 700;
     }
   }
 
   .activeLink {
-    background-color: #113770;
     color: #ffffff;
+    border: none;
     pointer-events: none;
   }
 }

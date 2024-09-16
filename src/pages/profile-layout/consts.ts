@@ -7,19 +7,11 @@ export const profileTabs: TabNavigationItem[] = [
 		exact: true,
 	},
 	{
-		title: 'Списки',
-		link: 'profile-lists',
+		title: 'О себе',
+		link: 'profile-about',
 	},
 	{
-		title: 'Транспорт',
-		link: 'profile-transport',
-	},
-	{
-		title: 'Группы',
-		link: 'profile-groups',
-	},
-	{
-		title: 'События',
-		link: 'profile-events',
+		title: 'Заявки на события',
+		link: 'profile-event-requests',
 	},
 ]

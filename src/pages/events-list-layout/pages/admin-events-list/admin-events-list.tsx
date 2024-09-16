@@ -1,16 +1,8 @@
-import { type FC, useEffect } from 'react'
+import { type FC } from 'react'
 
 import { AdminContent } from 'src/components/admin-content/admin-content'
-import { useActions } from 'src/hooks/actions/actions'
 
 export const AdminEventsList: FC = () => {
-	const { setAdminTitle } = useActions()
-	useEffect(() => {
-		setAdminTitle('Список событий')
-		return () => {
-			setAdminTitle(null)
-		}
-	}, [])
 	return (
 		<AdminContent $padding='25px 30px 35px'>
 			<ul>

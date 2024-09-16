@@ -1,9 +1,8 @@
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import { adminTitleActions } from 'src/modules/admin-title/store/admin-title.slice'
 
 const actions = {
-	...adminTitleActions,
+	// ...adminTitleActions,
 }
 export const useActions = () => {
 	const dispatch = useDispatch()

@@ -6,10 +6,8 @@ import { AdminLayout } from 'src/routes/admin-layout/admin-layout'
 
 import { ProfileLayout } from 'src/pages/profile-layout/profile-layout'
 import { AdminProfileMain } from 'src/pages/profile-layout/pages/admin-profile-main/admin-profile-main'
-import { AdminProfileLists } from 'src/pages/profile-layout/pages/admin-profile-lists/admin-profile-lists'
-import { AdminProfileTransport } from 'src/pages/profile-layout/pages/admin-profile-transport/admin-profile-transport'
-import { AdminProfileGroups } from 'src/pages/profile-layout/pages/admin-profile-groups/admin-profile-groups'
-import { AdminProfileEvents } from 'src/pages/profile-layout/pages/admin-profile-events/admin-profile-events'
+import { AdminProfileAbout } from 'src/pages/profile-layout/pages/admin-profile-about/admin-profile-about'
+import { AdminProfileEventRequests } from 'src/pages/profile-layout/pages/admin-profile-event-requests/admin-profile-event-requests'
 
 import { AdminNewsList } from 'src/pages/admin-site/admin-news-list/admin-news-list'
 import { AdminAddNews } from 'src/pages/admin-site/admin-add-news/admin-add-news'
@@ -74,7 +72,6 @@ import { AdminMaterialsList } from 'src/pages/admin-materials-list/admin-materia
 import { AdminAddMaterial } from 'src/pages/admin-add-material/admin-add-material'
 
 import { AdminProductList } from 'src/pages/admin-product-list/admin-product-list'
-import { AdminSales } from 'src/pages/admin-sales/admin-sales'
 import { AdminSupport } from 'src/pages/admin-support/admin-support'
 
 import { AdminSettingsHome } from 'src/pages/admin-settings-home/admin-settings-home'
@@ -92,10 +89,12 @@ export const AdminRoutes: FC = () => {
 			<Route path='/' element={<AdminLayout />}>
 				<Route path={AdminRoute.AdminProfile} element={<ProfileLayout />}>
 					<Route index element={<AdminProfileMain />} />
-					<Route path={AdminRoute.AdminProfileLists} element={<AdminProfileLists />} />
-					<Route path={AdminRoute.AdminProfileTransport} element={<AdminProfileTransport />} />
-					<Route path={AdminRoute.AdminProfileGroups} element={<AdminProfileGroups />} />
-					<Route path={AdminRoute.AdminProfileEvents} element={<AdminProfileEvents />} />
+					<Route path={AdminRoute.AdminProfileAbout} element={<AdminProfileAbout />} />
+
+					<Route
+						path={AdminRoute.AdminProfileEventRequests}
+						element={<AdminProfileEventRequests />}
+					/>
 				</Route>
 
 				<Route path={AdminRoute.AdminNewsList} element={<AdminNewsList />} />
@@ -174,7 +173,6 @@ export const AdminRoutes: FC = () => {
 				<Route path={AdminRoute.AdminAddMaterial} element={<AdminAddMaterial />} />
 
 				<Route path={AdminRoute.AdminProductList} element={<AdminProductList />} />
-				<Route path={AdminRoute.AdminSales} element={<AdminSales />} />
 
 				<Route path={AdminRoute.AdminSupport} element={<AdminSupport />} />
 

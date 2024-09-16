@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { type FC } from 'react'
 
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -10,7 +10,6 @@ import {
 import { AdminContent } from 'src/components/admin-content/admin-content'
 import { EventTitle } from 'src/components/event-title/event-title'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
-import { useActions } from 'src/hooks/actions/actions'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
 import { RegVisitor } from 'src/pages/one-event-layout/pages/admin-event-reg/components/reg-visitor/reg-visitor'
 import { RegParticipant } from 'src/pages/one-event-layout/pages/admin-event-reg/components/reg-participant/reg-participant'
@@ -18,8 +17,6 @@ import { RegParticipant } from 'src/pages/one-event-layout/pages/admin-event-reg
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
 export const AdminEventReg: FC = () => {
-	const { setAdminTitle } = useActions()
-
 	const methods = useForm<EventRegInputs>({
 		mode: 'onBlur',
 		resolver: yupResolver(eventRegSchema),
@@ -45,13 +42,6 @@ export const AdminEventReg: FC = () => {
 	const onSubmit: SubmitHandler<EventRegInputs> = (data) => {
 		console.log(data)
 	}
-
-	useEffect(() => {
-		setAdminTitle('Регистрация')
-		return () => {
-			setAdminTitle(null)
-		}
-	}, [])
 	return (
 		<AdminContent $padding='25px 30px 35px'>
 			<p className={adminStyles.adminPrompt}>
