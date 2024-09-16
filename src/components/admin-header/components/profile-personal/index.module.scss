@@ -1,0 +1,24 @@
+.adminPersonal {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.adminAvatar {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: 2px solid #35BCB4;
+}
+
+.adminName {
+  color: #ffffff;
+}
+
+.authBtn {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-left: auto;
+}

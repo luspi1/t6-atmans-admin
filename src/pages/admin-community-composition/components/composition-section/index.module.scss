@@ -1,0 +1,38 @@
+.compositionSection {
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+}
+
+.compositionDropzone {
+  margin-bottom: 20px;
+}
+
+.compositionItem {
+  position: relative;
+  background: #f4f7fa;
+  border: 1px dashed #98a5a3;
+  border-radius: 5px;
+  padding: 10px 24px 20px 24px;
+  margin-bottom: 15px;
+
+  h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+}
+
+.compositionRemoveBtn {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 12px;
+  top: 12px;
+}

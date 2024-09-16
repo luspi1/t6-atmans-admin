@@ -1,0 +1,64 @@
+.adminSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+
+  p {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    order: 1;
+    user-select: none;
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  label {
+    cursor: pointer;
+    width: 29px;
+    height: 16px;
+    border-radius: 50px;
+    position: relative;
+    background-color: #E3E7EB;
+    transition: all .3s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      transition: all .8s;
+    }
+  }
+
+
+}
+
+.activeSwitcher {
+  label {
+    background-color: #113770;
+    transition: all .8s;
+
+    &::before {
+      transition: all .8s;
+      right: 2px;
+      left: auto;
+    }
+  }
+
+  p {
+    color: #113770;
+  }
+}

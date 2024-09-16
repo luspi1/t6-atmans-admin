@@ -1,0 +1,59 @@
+@import "src/assets/styles/vars";
+
+.adminNavigation {
+  width: 220px;
+  min-width: 220px;
+
+  a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    @include opensans-semi;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 17px;
+
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  .adminNavigationList {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    & > li:first-child {
+      padding-bottom: 23px;
+      margin-bottom: 23px;
+      border-bottom: 1px solid rgba(#ffffff, 0.2);
+    }
+
+    & > li:nth-last-child(2) {
+      padding: 23px 0;
+      border-top: 1px solid rgba(#ffffff, 0.2);
+      border-bottom: 1px solid rgba(#ffffff, 0.2);
+      margin-bottom: 80px;
+    }
+
+    & > li:last-child {
+      padding: 23px 0 5px;
+      border-top: 1px solid rgba(#ffffff, 0.2);
+      border-bottom: 1px solid rgba(#ffffff, 0.2);
+    }
+  }
+}
+
+.activeLink {
+  svg {
+    opacity: 1;
+    path {
+      fill: #FFFFFF;
+    }
+  }
+}
+
+
