@@ -1,15 +1,13 @@
 import React, { type FC, type ReactNode, useState } from 'react'
-import { type FieldError, useFormContext } from 'react-hook-form'
-import { ErrorMessage } from '@hookform/error-message'
+import { Controller, type FieldError, useFormContext } from 'react-hook-form'
 import cn from 'classnames'
-import InputMask from 'react-input-mask'
+import { ErrorMessage } from '@hookform/error-message'
+import { PasswordEyeSvg } from 'src/UI/icons/passwordEyeSVG'
+import { IMaskInput } from 'react-imask'
 
 import styles from './index.module.scss'
-import { PasswordEyeSvg } from 'src/UI/icons/passwordEyeSVG'
 
 type ControlledInputProps = {
-	mask?: string
-	maskPlaceholder?: string
 	className?: string
 	label?: string | ReactNode
 	isTextarea?: boolean
@@ -24,8 +22,6 @@ type ControlledInputProps = {
 export const ControlledInput: FC<ControlledInputProps> = ({
 	name,
 	className,
-	mask,
-	maskPlaceholder,
 	label,
 	dynamicError,
 	isTextarea,
@@ -37,6 +33,7 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 }) => {
 	const {
 		register,
+		control,
 		formState: { errors },
 	} = useFormContext()
 
@@ -103,12 +100,9 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 		<div className={cn(styles.inputEl, className)} style={{ margin, width }}>
 			<label className={styles.inputWrapper}>
 				{label && <p>{label}</p>}
-				<InputMask
+				<input
 					{...register(name)}
 					{...props}
-					type={type}
-					mask={mask ?? ''}
-					maskPlaceholder={maskPlaceholder ?? '_'}
 					className={cn(styles.controlledInput, {
 						[styles.noValid]: errors[name],
 					})}

@@ -12,6 +12,7 @@ import {
 } from 'src/pages/profile-layout/pages/admin-profile-main/schema'
 import { PromptInput } from 'src/components/prompt-input/prompt-input'
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
 export const AdminProfileMain: FC = () => {
@@ -34,6 +35,13 @@ export const AdminProfileMain: FC = () => {
 							name='profileSurname'
 							label='Фамилия *'
 							margin='0'
+						/>
+					</PromptInput>
+					<PromptInput promptContent='Номер телефона'>
+						<ControlledMaskedInput
+							name='profilePhone'
+							label='Номер *'
+							mask='{+7} (000) 000-00-00'
 						/>
 					</PromptInput>
 					<AdminControllers outLink={AdminRoute.AdminHome} variant='2' />
