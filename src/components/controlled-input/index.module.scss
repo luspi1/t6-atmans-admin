@@ -1,31 +1,24 @@
 @import 'src/assets/styles/vars';
 
-.controlledInput {
-  @include ptsans-bold;
-  font-size: 16px;
-  padding: 13.5px 10px;
-  border: none;
-  width: 100%;
-  background-color: #fff;
-  color: #000000;
-  outline: none;
-
-  &::placeholder {
-    color: #CBCAD0;
-  }
-
-  &:disabled {
-    background-color: rgba(#000000, 0.2);
-  }
-}
-
 .inputWrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
   position: relative;
-
   p {
-    color: #9D9D9D;
+    font-weight: 600;
+    color: #000000;
+    font-size: 14px;
+
+    span {
+      font-weight: 400;
+
+      b {
+        font-weight: 600;
+        display: block;
+      }
+    }
   }
 
   span {
@@ -35,6 +28,26 @@
     cursor: pointer;
   }
 }
+.controlledInput {
+  @include ptsans-regular;
+  font-size: 14px;
+  padding: 9px 10px;
+  width: 100%;
+  background-color: #fff;
+  color: #000000;
+  outline: 1px solid #afafaf;
+  border: none;
+  border-radius: 3px;
+
+  &::placeholder {
+    color: #868686;
+  }
+
+  &:disabled {
+    background-color: rgba(#000000, 0.2);
+  }
+}
+
 
 .inputEl {
   position: relative;

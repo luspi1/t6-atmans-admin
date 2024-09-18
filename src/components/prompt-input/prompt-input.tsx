@@ -1,17 +1,20 @@
 import React, { type FC, type PropsWithChildren, type ReactNode } from 'react'
 
 import styled from 'styled-components'
+import { AdminPromptIconSvg } from 'src/UI/icons/adminPromptIconSVG'
 
-type PromptInputProps = PropsWithChildren<{
+type PromptInputWrapperProps = PropsWithChildren<{
 	children: ReactNode
-	promptContent?: string | ReactNode
 	className?: string
 	$margin?: string
-	$promptPadding?: string
 	$template?: string
 }>
 
-const StyledPromptInput = styled.div<PromptInputProps>`
+type PromptInputBtnProps = {
+	promptContent: string
+}
+
+const StyledPromptInput = styled.div<PromptInputWrapperProps>`
 	margin: ${({ $margin }) => $margin ?? '0 0 17px 0'};
 	grid-template: ${({ $template }) => $template ?? 'auto/minmax(405px, 1.1fr) 0.9fr'};
 	display: grid;
@@ -19,33 +22,25 @@ const StyledPromptInput = styled.div<PromptInputProps>`
 	@media (max-width: 1024px) {
 		grid-template: 1fr 1fr / 1fr;
 	}
-`
-const StyledPromptText = styled.p<PromptInputProps>`
-	font-size: 14px;
-	font-weight: 300;
-	line-height: 1.3;
-	color: #2d3231;
-	padding: ${({ $promptPadding }) => $promptPadding ?? '25px 0 0 0'};
-	@media (max-width: 1024px) {
-		padding: 10px 0 0 0;
-	}
-	a {
-		color: #113770;
-		font-weight: 600;
+	button {
+		margin-top: 30px;
+		width: 17px;
+		height: 17px;
 	}
 `
 
-export const PromptInput: FC<PromptInputProps> = ({
+export const PromptInput: FC<PromptInputWrapperProps & PromptInputBtnProps> = ({
 	children,
 	promptContent,
-	$promptPadding,
 	className,
 	...props
 }) => {
 	return (
 		<StyledPromptInput className={className} {...props}>
 			{children}
-			<StyledPromptText $promptPadding={$promptPadding}>{promptContent}</StyledPromptText>
+			<button title={promptContent}>
+				<AdminPromptIconSvg />
+			</button>
 		</StyledPromptInput>
 	)
 }

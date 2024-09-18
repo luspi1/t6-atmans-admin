@@ -13,7 +13,6 @@ import {
 import { PromptInput } from 'src/components/prompt-input/prompt-input'
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
 import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
-import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
 export const AdminProfileMain: FC = () => {
 	const methods = useForm<ProfileMainInputs>({
@@ -30,12 +29,7 @@ export const AdminProfileMain: FC = () => {
 			<FormProvider {...methods}>
 				<form onSubmit={methods.handleSubmit(onSubmit)} noValidate autoComplete='off'>
 					<PromptInput promptContent='Ваша фамилия'>
-						<ControlledInput
-							className={adminStyles.adminMainInput}
-							name='profileSurname'
-							label='Фамилия *'
-							margin='0'
-						/>
+						<ControlledInput name='profileSurname' label='Фамилия *' margin='0' />
 					</PromptInput>
 					<PromptInput promptContent='Номер телефона'>
 						<ControlledMaskedInput

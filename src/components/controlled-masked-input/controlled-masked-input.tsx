@@ -1,14 +1,17 @@
 import React, { type FC } from 'react'
 import styled from 'styled-components'
 import { IMaskInput } from 'react-imask'
-import { Controller, type FieldError, useController, useFormContext } from 'react-hook-form'
-import styles from 'src/components/controlled-date-input/index.module.scss'
+import { type FieldError, useController, useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
+
+import styles from './index.module.scss'
 
 type StyledIMaskProps = {
 	$margin?: string
 	$flexDirection?: string
 	$gap?: string
+	$maxWidth?: string
+	$validError?: boolean
 }
 
 type MaskInputProps = {
@@ -20,13 +23,26 @@ type MaskInputProps = {
 
 const StyledIMask = styled.div<StyledIMaskProps>`
 	margin: ${({ $margin }) => $margin ?? '0'};
+	max-width: ${({ $maxWidth }) => $maxWidth ?? '100%'};
+
+	input {
+		outline: 1px solid ${({ $validError }) => ($validError ? '#F00000' : '#AFAFAF')};
+		border: none;
+		border-radius: 3px;
+		padding: 9px 10px;
+		&::placeholder {
+			color: #868686;
+		}
+	}
 	label {
 		display: flex;
 		flex-direction: ${({ $flexDirection }) => $flexDirection ?? 'column'};
 		gap: ${({ $gap }) => $gap ?? '5px'};
 	}
-	p {
+
+	p:first-child {
 		font-size: 14px;
+		font-weight: 600;
 	}
 `
 
@@ -34,6 +50,7 @@ export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
 	$margin,
 	$flexDirection,
 	$gap,
+	$validError,
 	label,
 	name,
 	mask,
@@ -63,7 +80,12 @@ export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
 	}
 
 	return (
-		<StyledIMask $margin={$margin} $flexDirection={$flexDirection} $gap={$gap}>
+		<StyledIMask
+			$margin={$margin}
+			$flexDirection={$flexDirection}
+			$gap={$gap}
+			$validError={!!errors[name]}
+		>
 			<label>
 				{label && <p>{label}</p>}
 				<IMaskInput

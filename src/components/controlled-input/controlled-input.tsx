@@ -1,9 +1,8 @@
 import React, { type FC, type ReactNode, useState } from 'react'
-import { Controller, type FieldError, useFormContext } from 'react-hook-form'
+import { type FieldError, useFormContext } from 'react-hook-form'
 import cn from 'classnames'
 import { ErrorMessage } from '@hookform/error-message'
 import { PasswordEyeSvg } from 'src/UI/icons/passwordEyeSVG'
-import { IMaskInput } from 'react-imask'
 
 import styles from './index.module.scss'
 
@@ -33,7 +32,6 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 }) => {
 	const {
 		register,
-		control,
 		formState: { errors },
 	} = useFormContext()
 
