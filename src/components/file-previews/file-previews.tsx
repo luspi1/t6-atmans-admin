@@ -9,7 +9,7 @@ type FilePreviewsProps = {
 	files: FileWithPreview[]
 	removeBtn?: ReactNode
 	removeHandler?: (idx: number) => void
-	variant?: 'main' | 'text' | 'sm-img'
+	variant?: 'main' | 'text' | 'sm-img' | 'list'
 }
 export const FilePreviews: FC<FilePreviewsProps> = ({
 	files,
@@ -66,33 +66,50 @@ export const FilePreviews: FC<FilePreviewsProps> = ({
 		)
 	}
 
+	if (variant === 'list') {
+		return (
+			<ul className={styles.filesList}>
+				{files.map((file, idx) => (
+					<li key={file.preview}>
+						{removeBtn && (
+							<button
+								className={styles.removeBtn}
+								type='button'
+								onClick={() => removeHandler?.(idx)}
+							>
+								{removeBtn}
+							</button>
+						)}
+						{ImagesFormat.includes(defineFileFormat(file.name)) ? (
+							<img
+								src={file.preview}
+								alt={file.name}
+								onLoad={() => {
+									URL.revokeObjectURL(file.preview)
+								}}
+							/>
+						) : (
+							<div className={styles.textFile}>
+								<span></span>
+								<a href={file.path} download>
+									{file.name}
+								</a>
+							</div>
+						)}
+					</li>
+				))}
+			</ul>
+		)
+	}
+
 	return (
-		<ul className={styles.filesList}>
-			{files.map((file, idx) => (
-				<li key={file.preview}>
-					{removeBtn && (
-						<button className={styles.removeBtn} type='button' onClick={() => removeHandler?.(idx)}>
-							{removeBtn}
-						</button>
-					)}
-					{ImagesFormat.includes(defineFileFormat(file.name)) ? (
-						<img
-							src={file.preview}
-							alt={file.name}
-							onLoad={() => {
-								URL.revokeObjectURL(file.preview)
-							}}
-						/>
-					) : (
-						<div className={styles.textFile}>
-							<span></span>
-							<a href={file.path} download>
-								{file.name}
-							</a>
-						</div>
-					)}
-				</li>
-			))}
-		</ul>
+		<div className={styles.mainFile}>
+			<a href={files[0].path} download>
+				{files[0].name}
+			</a>
+			<button type='button' onClick={() => removeHandler?.(0)}>
+				{removeBtn}
+			</button>
+		</div>
 	)
 }

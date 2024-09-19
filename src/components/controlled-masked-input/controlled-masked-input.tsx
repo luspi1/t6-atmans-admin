@@ -18,6 +18,7 @@ type MaskInputProps = {
 	label?: string
 	name: string
 	mask?: string
+	placeholder?: string
 	dynamicError?: FieldError | undefined
 }
 
@@ -54,6 +55,7 @@ export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
 	label,
 	name,
 	mask,
+	placeholder,
 	dynamicError,
 	...rest
 }) => {
@@ -91,6 +93,7 @@ export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
 				<IMaskInput
 					{...inputProps}
 					{...rest}
+					placeholder={placeholder}
 					onAccept={handleAccept}
 					unmask={false}
 					mask={mask ?? ''}

@@ -5,14 +5,15 @@ import { type FileWithPreview } from 'src/types/files'
 import { useFormContext } from 'react-hook-form'
 
 import { FilePreviews } from 'src/components/file-previews/file-previews'
-import { DropzoneBgSvg } from 'src/UI/icons/dropzoneBgSVG'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 
-import styles from './index.module.scss'
 import cn from 'classnames'
 import { RemovePhotoSvg } from 'src/UI/icons/removePhotoSVG'
 import { RemoveTextFileSvg } from 'src/UI/icons/removeTextFileSVG'
 import { ErrorMessage } from '@hookform/error-message'
+import { AttachIconSvg } from 'src/UI/icons/attachIconSVG'
+
+import styles from './index.module.scss'
 
 type ReactDropzoneProps = {
 	name: string
@@ -123,25 +124,17 @@ export const ReactDropzone: FC<ReactDropzoneProps> = ({
 				removeHandler={removeFile}
 			/>
 			{currentFiles.length < maxFiles && (
-				<div className={styles.dropzoneWrapper}>
-					<div
-						className={cn(styles.dropzoneArea, dzAreaClassName, {
-							[styles.activeArea]: isDragActive,
-						})}
-						{...getRootProps()}
-					>
-						<input {...register(name)} {...getInputProps()} />
-						<DropzoneBgSvg />
-						<p>{prompt ?? 'Перетащите файл на это поле'}</p>
-						<p className={styles.btnPrompt}>или нажмите на кнопку</p>
-						<div className={styles.dropzoneController} onClick={open}>
-							{customUploadBtn ?? (
-								<AdminButton as='button' type='button' $padding='9.5px 44px' $outlined>
-									{uploadBtnText}
-								</AdminButton>
-							)}
-						</div>
-					</div>
+				<div
+					className={cn(styles.dropzoneArea, dzAreaClassName, {
+						[styles.activeArea]: isDragActive,
+					})}
+					{...getRootProps()}
+				>
+					<input {...register(name)} {...getInputProps()} />
+					<span>Прикрепить файл</span>
+					<p>
+						{prompt ?? 'Перетащите файл на это поле'} <AttachIconSvg />
+					</p>
 				</div>
 			)}
 			{errors[name] && (

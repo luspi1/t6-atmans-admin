@@ -48,7 +48,7 @@ export const ControlledDateInput: FC<ControlledDateInputProps> = ({
 
 	return (
 		<div className={cn(styles.dateInputWrapper, className)} style={{ margin }}>
-			<label>
+			<label className={cn({ [styles._noValid]: errors[name] })}>
 				{label && <p>{label}</p>}
 				<DatePicker
 					{...inputProps}

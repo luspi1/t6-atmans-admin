@@ -8,71 +8,43 @@
 }
 
 .dropzoneArea {
-  width: 400px;
-  height: 153px;
-  border: 1px dashed #7B7B7B;
+  max-width: 640px;
+  width: 100%;
+  cursor: pointer;
+  padding: 18px 20px;
+  border: 2px dashed #CCCCCC;
   background-color: #ffffff;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-
-  @media (max-width: 550px) {
-    width: 100%;
-  }
-
-  svg {
-    min-width: 34px;
-    width: 34px;
-    height: 24px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.2;
-  }
-
-  .btnPrompt {
-    color: #91969A;
-    margin-bottom: 4px;
-  }
-
-}
-
-.dropzoneWrapper {
-  display: flex;
-  align-items: stretch;
-  gap: 17px;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.dropzoneController {
-  max-width: 210px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  gap: 5px;
+  gap: 10px;
+  &:hover {
+    border-color: #7BC1C6;
+  }
 
   p {
-    margin-top: -3px;
+    font-size: 14px;
+    line-height: 1.1;
+    color: #868686;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    svg {
+      min-width: 20px;
+      height: 18px;
+    }
   }
 
-  button {
-    max-width: 160px;
-    display: flex;
-    justify-content: center;
+  span {
+    font-size: 16px;
+    font-weight: 600;
   }
+
 }
 
 .activeArea {
-  box-shadow: 0 0 20px 10px rgba(17, 55, 112, 0.25) inset;
+  border-color: #018EA3;
 }
 
 // стили текстового варианта загрузки файлов

@@ -12,22 +12,25 @@
 
   label {
     cursor: pointer;
-    border: 2px solid #E1E0E8;
+    border: 1px solid #868686;
+    border-radius: 3px;
     background: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+    min-width: 15px;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
     &._active {
-      border: 1px solid #000000;
+      border: 1px solid #184F71;
+      background: #184F71;
     }
   }
 
   p {
-    color: #9D9D9D;
+    color: #000000;
+    line-height: 1.1;
     user-select: none;
   }
 }
@@ -93,3 +96,4 @@
   }
 
 }
+

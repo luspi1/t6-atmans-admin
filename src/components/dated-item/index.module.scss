@@ -7,7 +7,7 @@
 }
 
 .titleMonth {
-  @include ptsans-bold;
+  @include opensans-bold;
   font-size: 16px;
   margin-bottom: 23px;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
 .datedItemContent {
   max-width: 790px;
   h5 {
-    @include ptsans-bold;
+    @include opensans-bold;
     font-size: 20px;
     margin-bottom: 5px;
     color: #000000;
@@ -45,7 +45,7 @@
   p {
     color: #000000;
     font-size: 16px;
-    @include ptsans-regular;
+    @include opensans-regular;
   }
 }
 

@@ -13,7 +13,6 @@ export const DateSection = () => {
 	return (
 		<AdminSection contentBg='none' contentPadding='0' contentBorder='none'>
 			<PromptInput
-				$promptPadding='0'
 				promptContent={
 					<span>
 						Укажите дату и время начала и окончания события. Рекомендуем также использовать{' '}
