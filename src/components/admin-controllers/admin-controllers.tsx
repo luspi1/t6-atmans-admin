@@ -25,19 +25,13 @@ export const AdminControllers: FC<AdminControllersProps> = ({ outLink, variant =
 
 	return (
 		<section className={styles.adminControllers}>
-			<AdminButton as='button' $padding='9.5px 18px' type='submit'>
-				Сохранить и закрыть
-			</AdminButton>
-			<AdminButton as='link' to={outLink} $padding='9.5px 15px' $outlined>
+			<AdminButton as='link' to={outLink}>
 				Применить и продолжить
 			</AdminButton>
-			<AdminButton
-				className={styles.cancelBtn}
-				as='link'
-				to={outLink}
-				$padding='9.5px 12px'
-				$danger
-			>
+			<AdminButton as='button' type='submit' $outlined>
+				Сохранить и выйти
+			</AdminButton>
+			<AdminButton className={styles.cancelBtn} as='link' to={outLink} $cancel>
 				Отменить изменения
 			</AdminButton>
 		</section>

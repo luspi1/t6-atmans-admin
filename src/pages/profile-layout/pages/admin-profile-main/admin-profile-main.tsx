@@ -32,7 +32,7 @@ export const AdminProfileMain: FC = () => {
 		console.log(data)
 	}
 	return (
-		<AdminContent $padding='25px 30px 35px'>
+		<AdminContent>
 			<h3>Профиль</h3>
 			<FormProvider {...methods}>
 				<form
@@ -50,10 +50,10 @@ export const AdminProfileMain: FC = () => {
 					<PromptInput promptContent='Ваше отчество'>
 						<ControlledInput name='profilePatronymic' label='Отчество' margin='0' />
 					</PromptInput>
-					<PromptInput promptContent='Ваше прозвище'>
+					<PromptInput promptContent='Ваше прозвище' $margin='0 0 23px 0'>
 						<ControlledInput name='profileNickname' label='Прозвище / позывной' margin='0' />
 					</PromptInput>
-					<GridRow $template='auto/ 204px minmax(150px, 330px)' $gap='0 30px' $margin='0 0 17px 0'>
+					<GridRow $template='auto/ 204px minmax(150px, 330px)' $gap='0 30px' $margin='0 0 25px 0'>
 						<ControlledDateInput
 							name='profileBirthday'
 							label='Дата рождения *'
@@ -71,10 +71,10 @@ export const AdminProfileMain: FC = () => {
 						name='profileAvatar'
 						label='Аватар *'
 						prompt='соотношение сторон 1:1 или 3:4, JPEG, PNG'
-						margin='0 0 15px 0'
+						margin='0 0 20px 0'
 						accept={{ 'image/png': ['.png'], 'image/jpeg': ['.jpeg'] }}
 					/>
-					<PromptInput promptContent='Ваш интернет-сайт' $margin='17px 0 17px 0'>
+					<PromptInput promptContent='Ваш интернет-сайт' $margin='20px 0 20px 0'>
 						<ControlledInput
 							name='profileSite'
 							label='Интернет-сайт'
@@ -91,9 +91,9 @@ export const AdminProfileMain: FC = () => {
 						/>
 					</PromptInput>
 					<GridRow
-						$template='auto / 180px minmax(150px, 330px) minmax(150px, 280px)'
+						$template='auto / 180px minmax(150px, 315px) minmax(150px, 280px)'
 						$gap='0 30px'
-						$margin='0 0 17px 0'
+						$margin='0 0 20px 0'
 					>
 						<ControlledMaskedInput
 							name='profilePhone'
@@ -102,13 +102,13 @@ export const AdminProfileMain: FC = () => {
 							mask='{+7} (000) 000-00-00'
 						/>
 						<ControlledCheckbox
-							margin='31px 0 0 0'
+							margin='34px 0 0 0'
 							name='isHiddenPhone'
 							type='checkbox'
 							label='Скрыть мой номер из публичного доступа'
 						/>
 						<ControlledCheckbox
-							margin='31px 0 0 0'
+							margin='34px 0 0 0'
 							name='isConnectedTelegram'
 							type='checkbox'
 							label='К этом номеру подключен Telegram'
@@ -127,6 +127,7 @@ export const AdminProfileMain: FC = () => {
 							promptContent='Ваш населенный пункт'
 							$margin='25px 0 0 0'
 							$padding='6px 0 0 0'
+							$template='1fr/minmax(210px, 1fr) 17px'
 						>
 							<ControlledInput
 								name='profileCity'
@@ -143,15 +144,15 @@ export const AdminProfileMain: FC = () => {
 							</>
 						}
 						$padding='2px 0 0 0'
-						$margin='15px 0 0 0'
+						$margin='25px 0 0 0'
 						$template='auto / 170px 17px'
 					>
 						Логин (номер телефона)
 					</PromptInput>
-					<CustomText $fontSize='20px' $fontWeight='600' $margin='0 0 17px 0'>
+					<CustomText $fontSize='20px' $fontWeight='600' $margin='0 0 20px 0'>
 						79110009887
 					</CustomText>
-					<PromptInput $maxWidth='606px' promptContent='Ваш пароль'>
+					<PromptInput $maxWidth='590px' promptContent='Ваш пароль'>
 						<ControlledInput
 							label='Пароль *'
 							name='profilePassword'
@@ -160,7 +161,7 @@ export const AdminProfileMain: FC = () => {
 							margin='0'
 						/>
 					</PromptInput>
-					<PromptInput $maxWidth='606px' promptContent='Повторите Ваш пароль'>
+					<PromptInput $maxWidth='590px' promptContent='Повторите Ваш пароль'>
 						<ControlledInput
 							label='Повторите пароль *'
 							name='profilePasswordConfirm'

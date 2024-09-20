@@ -107,7 +107,7 @@ export const FilePreviews: FC<FilePreviewsProps> = ({
 			<a href={files[0].path} download>
 				{files[0].name}
 			</a>
-			<button type='button' onClick={() => removeHandler?.(0)}>
+			<button className={styles.mainRemoveBtn} type='button' onClick={() => removeHandler?.(0)}>
 				{removeBtn}
 			</button>
 		</div>

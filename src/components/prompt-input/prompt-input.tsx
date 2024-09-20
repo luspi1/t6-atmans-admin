@@ -18,7 +18,7 @@ type PromptInputBtnProps = {
 
 const StyledPromptInput = styled.div<PromptInputWrapperProps>`
 	max-width: ${({ $maxWidth }) => $maxWidth ?? '100%'};
-	margin: ${({ $margin }) => $margin ?? '0 0 17px 0'};
+	margin: ${({ $margin }) => $margin ?? '0 0 20px 0'};
 	grid-template: ${({ $template }) => $template ?? 'auto/minmax(405px, 1fr) 17px'};
 	display: grid;
 	align-items: start;

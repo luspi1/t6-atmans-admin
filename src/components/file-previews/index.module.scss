@@ -1,3 +1,40 @@
+
+.mainFile {
+  max-width: 640px;
+  width: 100%;
+  cursor: pointer;
+  padding: 15px 20px;
+  min-height: 65px;
+  border: 2px dashed #CCCCCC;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  a {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    max-width: 290px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.mainRemoveBtn {
+  svg path {
+    transition: all .3s;
+  }
+  &:hover {
+    svg path {
+      fill: #184F71;
+      stroke: #184F71;
+    }
+  }
+}
+
 .filesList {
   display: flex;
   gap: 8px;
