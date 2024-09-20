@@ -7,6 +7,7 @@ import { ErrorMessage } from '@hookform/error-message'
 import { CheckMarkSvg } from 'src/UI/icons/checkMarkSVG'
 
 import styles from './index.module.scss'
+import styled from 'styled-components'
 
 type RadioOption = {
 	label: string
@@ -20,20 +21,30 @@ type ControlledCheckboxProps = {
 	required?: boolean
 	label?: string
 	className?: string
-	margin?: string
 	disabled?: boolean
 	checked?: boolean
 	value?: string
 }
 
-export const ControlledCheckbox: FC<ControlledCheckboxProps> = ({
+type CheckboxInputProps = {
+	$margin?: string
+}
+
+const StyledCheckboxWrapper = styled.div<CheckboxInputProps>`
+	margin: ${({ $margin }) => $margin ?? '0'};
+	@media (max-width: 1024px) {
+		margin: 0;
+	}
+`
+
+export const ControlledCheckbox: FC<ControlledCheckboxProps & CheckboxInputProps> = ({
 	name,
 	type,
 	label,
 	className,
 	required,
 	options,
-	margin,
+	$margin,
 	disabled,
 }) => {
 	const {
@@ -58,7 +69,7 @@ export const ControlledCheckbox: FC<ControlledCheckboxProps> = ({
 
 	if (type === 'radio') {
 		return (
-			<div className={cn(styles.radioInputs, className)}>
+			<StyledCheckboxWrapper className={cn(styles.radioInputs, className)} $margin={$margin}>
 				{options?.map((option) => (
 					<label key={option.value}>
 						<input
@@ -71,12 +82,12 @@ export const ControlledCheckbox: FC<ControlledCheckboxProps> = ({
 						{option.label}
 					</label>
 				))}
-			</div>
+			</StyledCheckboxWrapper>
 		)
 	}
 
 	return (
-		<div className={cn(styles.checkboxEl, className)} style={{ margin }}>
+		<StyledCheckboxWrapper className={cn(styles.checkboxEl, className)} $margin={$margin}>
 			<div
 				className={cn(styles.inputWrapper, { [styles._disabled]: disabled })}
 				onClick={handleCheckboxChange}
@@ -98,6 +109,6 @@ export const ControlledCheckbox: FC<ControlledCheckboxProps> = ({
 					<ErrorMessage errors={errors} name={name} />
 				</p>
 			)}
-		</div>
+		</StyledCheckboxWrapper>
 	)
 }

@@ -17,10 +17,10 @@ import { ControlledDateInput } from 'src/components/controlled-date-input/contro
 import { ControlledCheckbox } from 'src/components/controlled-checkbox/controlled-checkbox'
 import { GridRow } from 'src/components/grid-row/grid-row'
 import { ControlledSelect } from 'src/components/controlled-select/controlled-select'
-
-import styles from './index.module.scss'
 import { CustomText } from 'src/components/custom-text/custom-text'
 import { ReactDropzone } from 'src/components/react-dropzone/react-dropzone'
+
+import styles from './index.module.scss'
 
 export const AdminProfileMain: FC = () => {
 	const methods = useForm<ProfileMainInputs>({
@@ -61,7 +61,7 @@ export const AdminProfileMain: FC = () => {
 							placeholder='дд.мм.гггг'
 						/>
 						<ControlledCheckbox
-							margin='31px 0 0 0'
+							$margin='31px 0 0 0'
 							name='isHiddenAge'
 							type='checkbox'
 							label='Скрыть мой возраст из публичного доступа'
@@ -102,13 +102,13 @@ export const AdminProfileMain: FC = () => {
 							mask='{+7} (000) 000-00-00'
 						/>
 						<ControlledCheckbox
-							margin='34px 0 0 0'
+							$margin='34px 0 0 0'
 							name='isHiddenPhone'
 							type='checkbox'
 							label='Скрыть мой номер из публичного доступа'
 						/>
 						<ControlledCheckbox
-							margin='34px 0 0 0'
+							$margin='34px 0 0 0'
 							name='isConnectedTelegram'
 							type='checkbox'
 							label='К этом номеру подключен Telegram'

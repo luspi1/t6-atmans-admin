@@ -6,6 +6,7 @@ type StyledGridRowProps = {
 	$gap?: string
 	$alignItems?: string
 	$template?: string
+	$mdTemplate?: string
 	$maxWidth?: string
 	$padding?: string
 	$borderBottom?: string
@@ -21,6 +22,10 @@ const StyledGridRow = styled.div<StyledGridRowProps>`
 	max-width: ${({ $maxWidth }) => $maxWidth ?? '100%'};
 	align-items: ${({ $alignItems }) => $alignItems ?? 'start'};
 	grid-template: ${({ $template }) => $template ?? 'auto / 1fr 1fr'};
+	@media (max-width: 1024px) {
+		grid-template: ${({ $mdTemplate }) => $mdTemplate ?? '1fr 1fr / 1fr'};
+		align-items: center;
+	}
 `
 
 export const GridRow: FC<StyledGridRowProps> = ({ children, ...props }) => {

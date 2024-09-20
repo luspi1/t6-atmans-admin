@@ -13,7 +13,7 @@ const StyledAdminContent = styled.div<AdminContentProps>`
 	background-color: #fff;
 	border-radius: 5px;
 	padding: ${({ $padding }) => $padding ?? '30px 20px 60px 30px'};
-	min-height: ${({ $height }) => $height ?? '1100px'};
+	min-height: ${({ $height }) => $height ?? '800px'};
 	h3 {
 		font-size: 25px;
 		font-weight: 700;

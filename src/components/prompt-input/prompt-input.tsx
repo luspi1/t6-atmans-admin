@@ -23,8 +23,9 @@ const StyledPromptInput = styled.div<PromptInputWrapperProps>`
 	display: grid;
 	align-items: start;
 	column-gap: 10px;
-	@media (max-width: 1024px) {
-		grid-template: 1fr 1fr / 1fr;
+
+	@media (max-width: 768px) {
+		grid-template: auto/1fr 17px;
 	}
 
 	.prompt-content {
