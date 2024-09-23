@@ -9,3 +9,12 @@ export type EventsItem = {
 	type: string
 	desc: string
 }
+
+export type EventRequest = {
+	id: string
+	title: string
+	type: string
+	dateStart: Date
+	dateEnd: Date
+	location: string
+}

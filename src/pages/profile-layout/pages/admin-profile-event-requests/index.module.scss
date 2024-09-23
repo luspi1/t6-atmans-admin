@@ -1,0 +1,17 @@
+.requestsTable {
+  grid-template-columns: minmax(250px, 1.9fr) minmax(170px, 1fr) minmax(90px, 0.6fr) minmax(90px, 0.7fr)  minmax(180px, 0.8fr);
+  margin-bottom: 10px;
+  td:first-child {
+    p {
+      font-weight: 500;
+      max-width: 380px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.reqTitleWrapper {
+  padding: 0 30px;
+}

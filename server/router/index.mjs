@@ -24,8 +24,11 @@ import {
 	getNewsById,
 	getEvents,
 	getEventById,
-	getNewsVideos, getNewsVideoById, deleteNewsVideo
-} from "../controllers/main-controller.mjs";
+	getNewsVideos,
+	getNewsVideoById,
+	deleteNewsVideo,
+	getEventRequests,
+} from '../controllers/main-controller.mjs'
 import { Router } from 'express'
 
 export const router = new Router()
@@ -55,6 +58,7 @@ router.get('/news/:id', getNewsById)
 router.delete('/newsDelete/:id', deleteNews)
 router.get('/events', getEvents)
 router.get('/events/:id', getEventById)
+router.get('/event-requests', getEventRequests)
 router.get('/news-videos', getNewsVideos)
 router.get('/news-videos/:id', getNewsVideoById)
 router.delete('/newsVideoDelete/:id', deleteNewsVideo)

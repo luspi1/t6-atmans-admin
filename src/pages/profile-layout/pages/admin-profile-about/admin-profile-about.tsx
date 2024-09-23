@@ -20,7 +20,7 @@ export const AdminProfileAbout: FC = () => {
 		console.log(data)
 	}
 	return (
-		<AdminContent>
+		<AdminContent $height='700px'>
 			<h3>О себе</h3>
 			<FormProvider {...methods}>
 				<form
@@ -62,7 +62,7 @@ export const AdminProfileAbout: FC = () => {
 							margin='0'
 						/>
 					</PromptInput>
-					<PromptInput promptContent='Ваш Odnoklassniki'>
+					<PromptInput promptContent='Ваш RuTube'>
 						<ControlledInput
 							name='aboutRutube'
 							label='Адрес канала RuTube'

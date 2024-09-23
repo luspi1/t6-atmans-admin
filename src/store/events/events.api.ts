@@ -1,4 +1,4 @@
-import { type EventsItem } from 'src/types/events'
+import { type EventRequest, type EventsItem } from 'src/types/events'
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -25,7 +25,12 @@ export const eventsApi = createApi({
 				url: `events/${eventsId}`,
 			}),
 		}),
+		getEventRequests: build.query<EventRequest[], null>({
+			query: () => ({
+				url: 'event-requests',
+			}),
+		}),
 	}),
 })
 
-export const { useGetAllEventsQuery, useGetEventByIdQuery } = eventsApi
+export const { useGetAllEventsQuery, useGetEventByIdQuery, useGetEventRequestsQuery } = eventsApi
