@@ -9,10 +9,10 @@ aside {
     align-items: center;
     gap: 17px;
     width: 100%;
-    margin-bottom: 19px;
 
     svg {
       width: 20px;
+      min-width: 20px;
     }
 
     &:hover {

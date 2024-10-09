@@ -1,4 +1,4 @@
-export const AdminObjectsIconSvg = () => {
+export const AdminFederationIconSvg = () => {
 	return (
 		<svg
 			width='18'
