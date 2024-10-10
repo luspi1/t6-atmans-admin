@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type ContactsInputs } from 'src/pages/admin-community-contacts/schema'
+import { type ContactsInputs } from 'src/pages/community-layout/pages/admin-community-contacts/schema'
 
 import { useFieldArray, useFormContext } from 'react-hook-form'
 

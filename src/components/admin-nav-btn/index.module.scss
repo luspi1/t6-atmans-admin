@@ -9,13 +9,16 @@ aside {
     align-items: center;
     gap: 17px;
     width: 100%;
-
+    padding: 10px 12px 10px 14px;
+    border-radius: 5px;
+    transition: all .3s;
     svg {
       width: 20px;
       min-width: 20px;
     }
 
     &:hover {
+      background: #10537C;
       svg {
         opacity: 1;
       }
@@ -28,6 +31,7 @@ aside {
   }
 
   ._activeBtn {
+    background: #10537C;
     svg {
       opacity: 1;
       fill: #ffffff;
@@ -42,7 +46,8 @@ aside {
   }
 
   .navSubmenu {
-    padding-left: 37px;
+    padding-top: 14px;
+    padding-left: 50px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -50,7 +55,10 @@ aside {
 
     a {
       color: #8EFFF8;
-      text-decoration: underline;
+      transition: all .3s;
+      &:hover {
+        color: #ffffff;
+      }
     }
 
     ._activeSubLink {

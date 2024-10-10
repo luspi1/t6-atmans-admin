@@ -24,7 +24,7 @@ export const adminMenuItems: NavigationItem[] = [
 	{
 		title: 'Федерация',
 		icon: <AdminFederationIconSvg />,
-		link: 'community-about',
+		link: 'federation',
 	},
 	{
 		title: 'Отделения',

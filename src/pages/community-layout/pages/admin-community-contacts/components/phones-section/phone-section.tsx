@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type ContactsInputs } from 'src/pages/admin-community-contacts/schema'
+import { type ContactsInputs } from 'src/pages/community-layout/pages/admin-community-contacts/schema'
 
 import { useFieldArray, useFormContext } from 'react-hook-form'
 
@@ -8,6 +8,7 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 
 export const PhoneSection: FC = () => {
 	const {
@@ -46,14 +47,12 @@ export const PhoneSection: FC = () => {
 							placeholder='Адрес'
 							margin='0 0 10px 0'
 						/>
-						<ControlledInput
-							className={adminStyles.adminMainInput}
+						<ControlledMaskedInput
 							name={`phoneNumbers.${idx}.phoneNumber`}
 							dynamicError={errors.phoneNumbers?.[idx]?.phoneNumber}
 							label='Номер телефона'
-							mask='9 (999) 999-99-99'
+							mask='{+7} (000) 000-00-00'
 							placeholder='_ (___) ___-__-__'
-							margin='0'
 						/>
 						{idx !== 0 && (
 							<button type='button' onClick={() => remove(idx)}>

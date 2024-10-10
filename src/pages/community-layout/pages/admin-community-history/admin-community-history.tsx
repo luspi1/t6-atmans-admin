@@ -1,5 +1,8 @@
 import { type FC } from 'react'
-import { type ArticleInputs, articleSchema } from 'src/pages/admin-community-history/schema'
+import {
+	type ArticleInputs,
+	articleSchema,
+} from 'src/pages/community-layout/pages/admin-community-history/schema'
 
 import { Helmet } from 'react-helmet-async'
 import cn from 'classnames'
@@ -16,6 +19,7 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 import styles from './index.module.scss'
+
 export const AdminCommunityHistory: FC = () => {
 	const methods = useForm<ArticleInputs>({
 		mode: 'onBlur',
@@ -30,7 +34,6 @@ export const AdminCommunityHistory: FC = () => {
 			<Helmet>
 				<title>История общества</title>
 			</Helmet>
-			<h1>История общества</h1>
 			<AdminContent $padding='30px 30px 35px'>
 				<AdminButton
 					className={adminStyles.adminViewPageLink}

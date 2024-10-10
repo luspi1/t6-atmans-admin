@@ -15,8 +15,22 @@ body {
   line-height: 1.37;
   color: #000000;
   position: relative;
+  width: 100vw;
   @include opensans-regular;
   background-color: #F2F5F8;
+
+  //зарезервированное место под ползунок
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 100vh;
+    pointer-events: none;
+    visibility: hidden;
+  }
 }
 
 #root {

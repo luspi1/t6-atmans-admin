@@ -1,38 +1,38 @@
 import { type FC } from 'react'
 import {
-	type CompositionInputs,
-	compositionSchema,
-} from 'src/pages/admin-community-composition/schema'
+	type DirectionInputs,
+	directionSchema,
+} from 'src/pages/community-layout/pages/admin-community-direction/schema'
 
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet-async'
 import { yupResolver } from '@hookform/resolvers/yup'
 
+import { AdminRoute } from 'src/routes/admin-routes/consts'
 import { AdminContent } from 'src/components/admin-content/admin-content'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 import { PlusIconBlockSvg } from 'src/UI/icons/plusIconBlockSVG'
-import { CompositionSection } from 'src/pages/admin-community-composition/components/composition-section/composition-section'
 import { AdminSection } from 'src/components/admin-section/admin-section'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
+import { DirectionSection } from 'src/pages/community-layout/pages/admin-community-direction/components/direction-section/direction-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 import styles from './index.module.scss'
-import { AdminRoute } from 'src/routes/admin-routes/consts'
-export const AdminCommunityComposition: FC = () => {
-	const methods = useForm<CompositionInputs>({
+
+export const AdminCommunityDirection: FC = () => {
+	const methods = useForm<DirectionInputs>({
 		mode: 'onBlur',
-		resolver: yupResolver(compositionSchema),
+		resolver: yupResolver(directionSchema),
 	})
 
-	const onSubmit: SubmitHandler<CompositionInputs> = (data) => {
+	const onSubmit: SubmitHandler<DirectionInputs> = (data) => {
 		console.log(data)
 	}
 	return (
 		<>
 			<Helmet>
-				<title>Состав правления</title>
+				<title>Правление</title>
 			</Helmet>
-			<h1>Состав правления</h1>
 			<AdminContent $padding='30px 30px 35px'>
 				<AdminButton
 					className={adminStyles.adminViewPageLink}
@@ -45,14 +45,14 @@ export const AdminCommunityComposition: FC = () => {
 				</AdminButton>
 				<FormProvider {...methods}>
 					<form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
-						<CompositionSection
-							compositionTitle='Первые лица Правления'
-							compositionSubtitle='Председатели'
+						<DirectionSection
+							directionTitle='Первые лица Правления'
+							directionSubtitle='Председатели'
 							fieldName='topOfficials'
 						/>
-						<CompositionSection
-							compositionTitle='Вторые лица Правления'
-							compositionSubtitle='Заместители председателя'
+						<DirectionSection
+							directionTitle='Вторые лица Правления'
+							directionSubtitle='Заместители председателя'
 							fieldName='secondaryOfficials'
 						/>
 						<AdminSection contentBg='none' contentPadding='0' contentBorder='none'>

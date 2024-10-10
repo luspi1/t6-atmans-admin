@@ -1,19 +1,22 @@
 import { type FC } from 'react'
-import { type ContactsInputs, contactsSchema } from 'src/pages/admin-community-contacts/schema'
 
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet-async'
 import { yupResolver } from '@hookform/resolvers/yup'
+import {
+	type ContactsInputs,
+	contactsSchema,
+} from 'src/pages/community-layout/pages/admin-community-contacts/schema'
 
 import { AdminContent } from 'src/components/admin-content/admin-content'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
-import { MapSection } from 'src/pages/admin-community-contacts/components/map-section/map-section'
-import { MailSection } from 'src/pages/admin-community-contacts/components/mail-section/mail-section'
-import { PhoneSection } from 'src/pages/admin-community-contacts/components/phones-section/phone-section'
-import { EmailsSection } from 'src/pages/admin-community-contacts/components/emails-section/emails-section'
-import { LinksSection } from 'src/pages/admin-community-contacts/components/links-section/links-section'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
+import { MapSection } from 'src/pages/community-layout/pages/admin-community-contacts/components/map-section/map-section'
+import { MailSection } from 'src/pages/community-layout/pages/admin-community-contacts/components/mail-section/mail-section'
+import { PhoneSection } from 'src/pages/community-layout/pages/admin-community-contacts/components/phones-section/phone-section'
+import { EmailsSection } from 'src/pages/community-layout/pages/admin-community-contacts/components/emails-section/emails-section'
+import { LinksSection } from 'src/pages/community-layout/pages/admin-community-contacts/components/links-section/links-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
@@ -46,7 +49,6 @@ export const AdminCommunityContacts: FC = () => {
 			<Helmet>
 				<title>Контакты и связь</title>
 			</Helmet>
-			<h1>Контакты и связь</h1>
 			<AdminContent $padding='30px 30px 35px'>
 				<AdminButton
 					className={adminStyles.adminViewPageLink}

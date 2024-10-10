@@ -16,14 +16,6 @@ import { AdminAddVideo } from 'src/pages/admin-site/admin-add-video/admin-add-vi
 import { AdminRequests } from 'src/pages/admin-site/admin-requests/admin-requests'
 import { AdminAboutContent } from 'src/pages/admin-site/admin-about-content/admin-about-content'
 
-import { AdminCommunityAbout } from 'src/pages/admin-community-about/admin-community-about'
-import { AdminCommunityHistory } from 'src/pages/admin-community-history/admin-community-history'
-import { AdminCommunityComposition } from 'src/pages/admin-community-composition/admin-community-composition'
-import { AdminCommunityContacts } from 'src/pages/admin-community-contacts/admin-community-contacts'
-import { AdminCommunityDocuments } from 'src/pages/admin-community-documents/admin-community-documents'
-import { AdminCommunityMediakit } from 'src/pages/admin-community-mediakit/admin-community-mediakit'
-import { AdminCommunityPhotos } from 'src/pages/admin-community-photos/admin-community-photos'
-
 import { AdminDepartmentsList } from 'src/pages/admin-departments-list/admin-departments-list'
 import { AdminAddDepartments } from 'src/pages/admin-add-departments/admin-add-departments'
 
@@ -82,6 +74,11 @@ import { AdminSettingsBlocks } from 'src/pages/admin-settings-blocks/admin-setti
 
 import { AdminOrganizerProfile } from 'src/pages/admin-organizer-profile/admin-organizer-profile'
 import { AdminUserProfile } from 'src/pages/admin-user-profile/admin-user-profile'
+import { CommunityLayout } from 'src/pages/community-layout/community-layout'
+import { AdminCommunityAbout } from 'src/pages/community-layout/pages/admin-community-about/admin-community-about'
+import { AdminCommunityHistory } from 'src/pages/community-layout/pages/admin-community-history/admin-community-history'
+import { AdminCommunityDirection } from 'src/pages/community-layout/pages/admin-community-direction/admin-community-direction'
+import { AdminCommunityContacts } from 'src/pages/community-layout/pages/admin-community-contacts/admin-community-contacts'
 
 export const AdminRoutes: FC = () => {
 	return (
@@ -103,18 +100,12 @@ export const AdminRoutes: FC = () => {
 				<Route path={AdminRoute.AdminAddVideo} element={<AdminAddVideo />} />
 				<Route path={AdminRoute.AdminRequestList} element={<AdminRequests />} />
 				<Route path={AdminRoute.AdminAboutContent} element={<AdminAboutContent />} />
-
-				<Route path={AdminRoute.AdminCommunityAbout} element={<AdminCommunityAbout />} />
-				<Route path={AdminRoute.AdminCommunityHistory} element={<AdminCommunityHistory />} />
-				<Route
-					path={AdminRoute.AdminCommunityComposition}
-					element={<AdminCommunityComposition />}
-				/>
-				<Route path={AdminRoute.AdminCommunityContacts} element={<AdminCommunityContacts />} />
-				<Route path={AdminRoute.AdminCommunityDocuments} element={<AdminCommunityDocuments />} />
-				<Route path={AdminRoute.AdminCommunityMediakit} element={<AdminCommunityMediakit />} />
-				<Route path={AdminRoute.AdminCommunityPhotos} element={<AdminCommunityPhotos />} />
-
+				<Route path={AdminRoute.AdminFederation} element={<CommunityLayout />}>
+					<Route index element={<AdminCommunityAbout />} />
+					<Route path={AdminRoute.AdminFederationHistory} element={<AdminCommunityHistory />} />
+					<Route path={AdminRoute.AdminFederationDirection} element={<AdminCommunityDirection />} />
+					<Route path={AdminRoute.AdminFederationContacts} element={<AdminCommunityContacts />} />
+				</Route>
 				<Route path={AdminRoute.AdminDepartmentsList} element={<AdminDepartmentsList />} />
 				<Route path={AdminRoute.AdminAddDepartments} element={<AdminAddDepartments />} />
 

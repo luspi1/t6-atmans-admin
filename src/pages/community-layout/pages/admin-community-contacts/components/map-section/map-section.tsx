@@ -1,5 +1,5 @@
 import { type FC, useState } from 'react'
-import { type ContactsInputs } from 'src/pages/admin-community-contacts/schema'
+import { type ContactsInputs } from 'src/pages/community-layout/pages/admin-community-contacts/schema'
 
 import { useFormContext } from 'react-hook-form'
 
@@ -39,7 +39,6 @@ export const MapSection: FC = () => {
 						as='button'
 						$padding='9.5px 43px'
 						type='button'
-						$danger
 						onClick={() => setMapScript(null)}
 					>
 						Отменить

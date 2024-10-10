@@ -18,7 +18,7 @@ export const AdminLayout: FC = () => {
 			</Helmet>
 			<AdminHeader />
 			<main className={styles.adminMain}>
-				<Container className={styles.adminInner} $width='1830px' $padding='38px 15px'>
+				<Container className={styles.adminInner} $width='1856px' $padding='31px 15px'>
 					<AdminNavigation />
 					<div className={styles.contentWrapper}>
 						<Outlet />

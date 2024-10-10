@@ -2,7 +2,7 @@
 
 .adminInner {
   display: flex;
-  gap: 35px;
+  gap: 23px;
   align-items: flex-start;
 
   @include opensans-regular;
@@ -14,15 +14,16 @@
   }
 
   h1 {
-    font-size: 25px;
+    font-size: 27px;
     color: #ffffff;
     line-height: 1.2;
-    @include opensans-semi;
+    font-weight: 700;
     margin-bottom: 25px;
   }
 }
 
 .contentWrapper {
+  padding-top: 5px;
   flex-grow: 1;
   overflow-x: auto;
 

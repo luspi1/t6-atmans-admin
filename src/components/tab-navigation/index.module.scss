@@ -8,12 +8,19 @@
   }
 
   li {
+    &:hover {
+      a {
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+    }
+
     a {
       display: inline-block;
       color: #6FF5FE;
       font-size: 16px;
       border-bottom: 1px dotted #6FF5FE;
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
