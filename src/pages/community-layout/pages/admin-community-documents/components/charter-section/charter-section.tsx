@@ -7,7 +7,9 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 import { AdminSection } from 'src/components/admin-section/admin-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import communityDocStyles from 'src/pages/admin-community-documents/index.module.scss'
+import communityDocStyles from '../../index.module.scss'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
+
 export const CharterSection: FC = () => {
 	return (
 		<AdminSection titleText='Устав организации'>
@@ -26,14 +28,11 @@ export const CharterSection: FC = () => {
 				margin='0 0 15px 0'
 				isTextarea
 			/>
-			<ControlledInput
-				className={cn(adminStyles.adminMainInput, communityDocStyles.versionInput)}
+			<ControlledMaskedInput
 				name='charterVersion'
 				label='Номер версии'
-				mask='999999999999999'
-				maskPlaceholder=''
+				mask={Number}
 				placeholder='Номер версии'
-				margin='0 0 20px 0'
 			/>
 			<ReactDropzone
 				name='charterPdf'

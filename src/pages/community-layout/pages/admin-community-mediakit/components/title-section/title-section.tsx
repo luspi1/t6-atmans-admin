@@ -6,7 +6,7 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 import { AdminSection } from 'src/components/admin-section/admin-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import mediaStyles from 'src/pages/admin-community-mediakit/index.module.scss'
+import mediaStyles from '../../index.module.scss'
 export const TitleSection: FC = () => {
 	return (
 		<AdminSection

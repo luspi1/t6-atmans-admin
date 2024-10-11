@@ -1,5 +1,8 @@
 import { type FC } from 'react'
-import { type MediakitInputs, mediaPressSchema } from 'src/pages/admin-community-mediakit/schema'
+import {
+	type MediakitInputs,
+	mediaPressSchema,
+} from 'src/pages/community-layout/pages/admin-community-mediakit/schema'
 
 import { Helmet } from 'react-helmet-async'
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
@@ -7,11 +10,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { AdminContent } from 'src/components/admin-content/admin-content'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
-import { TitleSection } from 'src/pages/admin-community-mediakit/components/title-section/title-section'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
-import { PressSection } from 'src/pages/admin-community-mediakit/components/press-section/press-section'
-import { BrandSection } from 'src/pages/admin-community-mediakit/components/brand-section/brand-section'
+import { TitleSection } from 'src/pages/community-layout/pages/admin-community-mediakit/components/title-section/title-section'
+import { BrandSection } from 'src/pages/community-layout/pages/admin-community-mediakit/components/brand-section/brand-section'
+import { PressSection } from 'src/pages/community-layout/pages/admin-community-mediakit/components/press-section/press-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
@@ -43,7 +46,6 @@ export const AdminCommunityMediakit: FC = () => {
 			<Helmet>
 				<title>Медиакит</title>
 			</Helmet>
-			<h1>Медиакит</h1>
 			<AdminContent $padding='30px 30px 35px'>
 				<AdminButton
 					className={adminStyles.adminViewPageLink}

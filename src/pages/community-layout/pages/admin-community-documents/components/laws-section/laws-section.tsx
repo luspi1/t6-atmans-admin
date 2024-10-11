@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { type CommunityDocumentsInputs } from 'src/pages/admin-community-documents/schema'
 
 import cn from 'classnames'
+import { type CommunityDocumentsInputs } from 'src/pages/community-layout/pages/admin-community-documents/schema'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 
 import { ReactDropzone } from 'src/components/react-dropzone/react-dropzone'
@@ -11,8 +11,10 @@ import { RemoveBlockSvg } from 'src/UI/icons/removeBlockSVG'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import communityDocStyles from 'src/pages/admin-community-documents/index.module.scss'
+import communityDocStyles from '../../index.module.scss'
+
 import styles from './index.module.scss'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 export const LawsSection: FC = () => {
 	const {
 		control,
@@ -56,15 +58,12 @@ export const LawsSection: FC = () => {
 							placeholder='Название'
 							margin='0 0 20px 0'
 						/>
-						<ControlledInput
-							className={cn(adminStyles.adminMainInput, communityDocStyles.versionInput)}
+						<ControlledMaskedInput
 							name={`lawsDocs.${idx}.lawVersion`}
 							dynamicError={errors.lawsDocs?.[idx]?.lawVersion}
 							label='Номер версии'
-							mask='999999999999999'
-							maskPlaceholder=''
+							mask={Number}
 							placeholder='Номер версии'
-							margin='0 0 24px 0'
 						/>
 
 						<h5>Загрузить документ</h5>

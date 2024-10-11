@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type MediakitInputs } from 'src/pages/admin-community-mediakit/schema'
+import { type MediakitInputs } from 'src/pages/community-layout/pages/admin-community-mediakit/schema'
 
 import cn from 'classnames'
 import { useFieldArray, useFormContext } from 'react-hook-form'
@@ -9,10 +9,12 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 import { AdminSection } from 'src/components/admin-section/admin-section'
 import { RemoveBlockSvg } from 'src/UI/icons/removeBlockSVG'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import mediaStyles from 'src/pages/admin-community-mediakit/index.module.scss'
+import mediaStyles from '../../index.module.scss'
 import styles from './index.module.scss'
+
 export const PressSection: FC = () => {
 	const {
 		control,
@@ -56,15 +58,13 @@ export const PressSection: FC = () => {
 							placeholder='Название'
 							margin='0 0 20px 0'
 						/>
-						<ControlledInput
+						<ControlledMaskedInput
 							className={cn(adminStyles.adminMainInput, mediaStyles.versionInput)}
 							name={`pressDocs.${idx}.pressVersion`}
 							dynamicError={errors.pressDocs?.[idx]?.pressVersion}
 							label='Номер версии'
-							mask='999999999999999'
-							maskPlaceholder=''
 							placeholder='Номер версии'
-							margin='0 0 24px 0'
+							mask={Number}
 						/>
 
 						<h5>Загрузить документ</h5>

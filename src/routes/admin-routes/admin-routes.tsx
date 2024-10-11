@@ -79,6 +79,10 @@ import { AdminCommunityAbout } from 'src/pages/community-layout/pages/admin-comm
 import { AdminCommunityHistory } from 'src/pages/community-layout/pages/admin-community-history/admin-community-history'
 import { AdminCommunityDirection } from 'src/pages/community-layout/pages/admin-community-direction/admin-community-direction'
 import { AdminCommunityContacts } from 'src/pages/community-layout/pages/admin-community-contacts/admin-community-contacts'
+import { AdminCommunityDocuments } from 'src/pages/community-layout/pages/admin-community-documents/admin-community-documents'
+import { AdminCommunityMediakit } from 'src/pages/community-layout/pages/admin-community-mediakit/admin-community-mediakit'
+import { AdminCommunityParticipants } from 'src/pages/community-layout/pages/admin-community-participants/admin-community-participants'
+import { AdminCommunityPartners } from 'src/pages/community-layout/pages/admin-community-partners/admin-community-partners'
 
 export const AdminRoutes: FC = () => {
 	return (
@@ -105,6 +109,13 @@ export const AdminRoutes: FC = () => {
 					<Route path={AdminRoute.AdminFederationHistory} element={<AdminCommunityHistory />} />
 					<Route path={AdminRoute.AdminFederationDirection} element={<AdminCommunityDirection />} />
 					<Route path={AdminRoute.AdminFederationContacts} element={<AdminCommunityContacts />} />
+					<Route path={AdminRoute.AdminFederationDocuments} element={<AdminCommunityDocuments />} />
+					<Route path={AdminRoute.AdminFederationMediakit} element={<AdminCommunityMediakit />} />
+					<Route path={AdminRoute.AdminFederationPartners} element={<AdminCommunityPartners />} />
+					<Route
+						path={AdminRoute.AdminFederationParticipants}
+						element={<AdminCommunityParticipants />}
+					/>
 				</Route>
 				<Route path={AdminRoute.AdminDepartmentsList} element={<AdminDepartmentsList />} />
 				<Route path={AdminRoute.AdminAddDepartments} element={<AdminAddDepartments />} />

@@ -1,7 +1,6 @@
 import { type FC } from 'react'
-import { type CommunityDocumentsInputs } from 'src/pages/admin-community-documents/schema'
+import { type CommunityDocumentsInputs } from 'src/pages/community-layout/pages/admin-community-documents/schema'
 
-import cn from 'classnames'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 
 import { ReactDropzone } from 'src/components/react-dropzone/react-dropzone'
@@ -11,7 +10,8 @@ import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 import { RemoveBlockSvg } from 'src/UI/icons/removeBlockSVG'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import communityDocStyles from 'src/pages/admin-community-documents/index.module.scss'
+import communityDocStyles from '../../index.module.scss'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 export const RulesSection: FC = () => {
 	const {
 		control,
@@ -55,15 +55,12 @@ export const RulesSection: FC = () => {
 							placeholder='Название'
 							margin='0 0 20px 0'
 						/>
-						<ControlledInput
-							className={cn(adminStyles.adminMainInput, communityDocStyles.versionInput)}
+						<ControlledMaskedInput
 							name={`rulesDocs.${idx}.ruleVersion`}
 							dynamicError={errors.rulesDocs?.[idx]?.ruleVersion}
 							label='Номер версии'
-							mask='999999999999999'
-							maskPlaceholder=''
+							mask={Number}
 							placeholder='Номер версии'
-							margin='0 0 20px 0'
 						/>
 						<ReactDropzone
 							name={`rulesDocs.${idx}.rulePdf`}

@@ -19,6 +19,7 @@ import { PromptInput } from 'src/components/prompt-input/prompt-input'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 import styles from './index.module.scss'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 
 export const TicketsSection: FC = () => {
 	const {
@@ -68,14 +69,12 @@ export const TicketsSection: FC = () => {
 									placeholder='Название'
 									margin='0'
 								/>
-								<ControlledInput
+								<ControlledMaskedInput
 									className={cn(adminStyles.adminMainInput, styles.ticketSmInput)}
 									name={`tickets.${idx}.quantity`}
 									dynamicError={errors.tickets?.[idx]?.quantity}
 									label='Билетов, не более'
-									mask='99999999999999'
-									maskPlaceholder=''
-									margin='0'
+									mask={Number}
 								/>
 							</GridRow>
 
@@ -107,14 +106,12 @@ export const TicketsSection: FC = () => {
 							</FlexRow>
 							{watch(`tickets.${idx}.isPaidTicket`) && (
 								<FlexRow $gap='10px' $margin='20px 0 0 0'>
-									<ControlledInput
+									<ControlledMaskedInput
 										className={cn(adminStyles.adminMainInput, styles.ticketSmInput)}
 										name={`tickets.${idx}.priceTicket`}
 										dynamicError={errors.tickets?.[idx]?.priceTicket}
 										label='Стоимость билета *'
-										mask='99999999999999'
-										maskPlaceholder=''
-										margin='0'
+										mask={Number}
 									/>
 									<CustomText $padding='30px 0 0 0'>рублей РФ</CustomText>
 								</FlexRow>
@@ -244,14 +241,12 @@ export const TicketsSection: FC = () => {
 											},
 										]}
 									/>
-									<ControlledInput
+									<ControlledMaskedInput
 										className={cn(styles.entriesCountInput, adminStyles.adminMainInput)}
 										name={`tickets.${idx}.entriesCount`}
-										mask='99999999999'
+										mask={Number}
 										width='50px'
-										maskPlaceholder=''
 										dynamicError={errors.tickets?.[idx]?.entriesCount}
-										margin='0 32px 0 0'
 									/>
 									<FlexRow $direction='column' $gap='11px'>
 										<ControlledCheckbox

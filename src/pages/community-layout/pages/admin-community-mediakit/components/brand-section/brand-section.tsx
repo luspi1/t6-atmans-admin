@@ -5,9 +5,11 @@ import cn from 'classnames'
 import { ReactDropzone } from 'src/components/react-dropzone/react-dropzone'
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
 import { AdminSection } from 'src/components/admin-section/admin-section'
+import { ControlledMaskedInput } from 'src/components/controlled-masked-input/controlled-masked-input'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import mediaStyles from 'src/pages/admin-community-mediakit/index.module.scss'
+import mediaStyles from '../../index.module.scss'
+
 export const BrandSection: FC = () => {
 	return (
 		<AdminSection titleText='Бренд-бук'>
@@ -19,14 +21,12 @@ export const BrandSection: FC = () => {
 				margin='0 0 15px 0'
 				isTextarea
 			/>
-			<ControlledInput
+			<ControlledMaskedInput
 				className={cn(adminStyles.adminMainInput, mediaStyles.versionInput)}
 				name='brandBookVersion'
 				label='Номер версии'
-				mask='999999999999999'
-				maskPlaceholder=''
 				placeholder='Номер версии'
-				margin='0 0 20px 0'
+				mask={Number}
 			/>
 			<ReactDropzone
 				name='brandBookPdf'

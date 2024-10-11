@@ -1,9 +1,9 @@
 import { type FC } from 'react'
+
 import {
 	type CommunityDocumentsInputs,
 	communityDocumentsSchema,
-} from 'src/pages/admin-community-documents/schema'
-
+} from 'src/pages/community-layout/pages/admin-community-documents/schema'
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Helmet } from 'react-helmet-async'
@@ -12,12 +12,12 @@ import { AdminContent } from 'src/components/admin-content/admin-content'
 import { AdminButton } from 'src/UI/AdminButton/AdminButton'
 import { AdminRoute } from 'src/routes/admin-routes/consts'
 
-import { TitleSection } from 'src/pages/admin-community-documents/components/title-section/title-section'
-import { CharterSection } from 'src/pages/admin-community-documents/components/charter-section/charter-section'
-import { RulesSection } from 'src/pages/admin-community-documents/components/rules-section/rules-section'
-import { LawsSection } from 'src/pages/admin-community-documents/components/laws-section/laws-section'
 import { AdminControllers } from 'src/components/admin-controllers/admin-controllers'
 
+import { TitleSection } from 'src/pages/community-layout/pages/admin-community-documents/components/title-section/title-section'
+import { CharterSection } from 'src/pages/community-layout/pages/admin-community-documents/components/charter-section/charter-section'
+import { RulesSection } from 'src/pages/community-layout/pages/admin-community-documents/components/rules-section/rules-section'
+import { LawsSection } from 'src/pages/community-layout/pages/admin-community-documents/components/laws-section/laws-section'
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
 
 export const AdminCommunityDocuments: FC = () => {
@@ -50,7 +50,6 @@ export const AdminCommunityDocuments: FC = () => {
 			<Helmet>
 				<title>Документы Общества</title>
 			</Helmet>
-			<h1>Документы Общества</h1>
 			<AdminContent $padding='30px 30px 35px'>
 				<AdminButton
 					className={adminStyles.adminViewPageLink}

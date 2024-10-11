@@ -1,6 +1,6 @@
 import React, { type FC } from 'react'
 import styled from 'styled-components'
-import { IMaskInput } from 'react-imask'
+import { IMaskInput, type IMaskInputProps } from 'react-imask'
 import { type FieldError, useController, useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 
@@ -17,7 +17,6 @@ type StyledIMaskProps = {
 type MaskInputProps = {
 	label?: string
 	name: string
-	mask?: string
 	placeholder?: string
 	dynamicError?: FieldError | undefined
 }
@@ -47,14 +46,15 @@ const StyledIMask = styled.div<StyledIMaskProps>`
 	}
 `
 
-export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
+export const ControlledMaskedInput: FC<
+	StyledIMaskProps & MaskInputProps & IMaskInputProps<HTMLInputElement>
+> = ({
 	$margin,
 	$flexDirection,
 	$gap,
 	$validError,
 	label,
 	name,
-	mask,
 	placeholder,
 	dynamicError,
 	...rest
@@ -96,7 +96,6 @@ export const ControlledMaskedInput: FC<StyledIMaskProps & MaskInputProps> = ({
 					placeholder={placeholder}
 					onAccept={handleAccept}
 					unmask={false}
-					mask={mask ?? ''}
 				/>
 			</label>
 			{dynamicError && <p className={styles.warningMessage}>{dynamicError.message}</p>}

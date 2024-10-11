@@ -6,7 +6,8 @@ import { ControlledInput } from 'src/components/controlled-input/controlled-inpu
 import { AdminSection } from 'src/components/admin-section/admin-section'
 
 import adminStyles from 'src/routes/admin-layout/index.module.scss'
-import communityDocStyles from 'src/pages/admin-community-documents/index.module.scss'
+import communityDocStyles from '../../index.module.scss'
+
 export const TitleSection: FC = () => {
 	return (
 		<AdminSection
