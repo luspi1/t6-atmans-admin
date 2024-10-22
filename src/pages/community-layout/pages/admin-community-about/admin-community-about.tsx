@@ -45,18 +45,9 @@ export const AdminCommunityAbout: FC = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Федерация</title>
+				<title>О федерации</title>
 			</Helmet>
-			<AdminContent $padding='30px 30px 35px'>
-				<AdminButton
-					className={adminStyles.adminViewPageLink}
-					as='link'
-					to='/'
-					$margin='0 0 29px 0'
-					$outlined
-				>
-					Посмотреть страницу на сайте
-				</AdminButton>
+			<AdminContent $padding='30px 30px 35px' title='О федерации' link='#'>
 				<FormProvider {...methods}>
 					<form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
 						<TitleSection />
